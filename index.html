@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>$500 BCF Voucher Giveaway | Mega Friday | Mega Rewards</title>
+<meta name="description" content="One lucky winner will score a $500 BCF shopping voucher. Free to enter for Australian residents 18+. Entries close 9:00am ACDT Friday 4 December 2026.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Michroma&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   DISPLAY FONT — Geom Graphic Bold
+   Used straight away if installed on the computer.
+   For the live site, put the licensed files in /fonts:
+   GeomGraphic-Bold.woff2 / .woff / .otf
+   ("Michroma" is only a stand-in until the font loads.)
+   ========================================================= */
+@font-face{
+  font-family:"Geom Graphic";font-weight:700;font-style:normal;font-display:swap;
+  src:local("Geom Graphic Bold"),local("GeomGraphic-Bold"),local("Geom Graphic"),
+      url("fonts/GeomGraphic-Bold.woff2") format("woff2"),
+      url("fonts/GeomGraphic-Bold.woff") format("woff"),
+      url("fonts/GeomGraphic-Bold.otf") format("opentype");
+}
+
+/* =========================================================
+   Desktop is built on the 1920px Figma frame.
+   1u = 1 Figma pixel at 1920 wide, and scales down with the screen,
+   so every screen width shows the same composition as the design.
+   ========================================================= */
+:root{
+  --u:min(1px, calc(100vw / 1920));
+  --navy:#0B1B3A; --navy-deep:#000B21; --bg:#F7F8FB; --white:#fff;
+  --body:#3E4C66; --muted:#D5DDEB; --muted-2:#B9C5DA; --sand:#D9CDB8; --amber:#F5B342;
+  --display:"Geom Graphic","Michroma","Arial Black",sans-serif;
+  --sans:"Montserrat",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--navy);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+p,h1,h2,h3{margin:0}
+.display{font-family:var(--display);font-weight:700}
+/* a text size: N Figma px, never smaller than a floor */
+.wrap{width:100%;max-width:calc(1920 * var(--u));margin:0 auto;padding-inline:calc(160 * var(--u))}
+
+/* ---------- Buttons (from the Figma components) ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;border-radius:999px;text-decoration:none;white-space:nowrap;
+  font-family:var(--sans);line-height:1.2;transition:transform .2s ease, box-shadow .2s ease, background-color .2s ease}
+.btn svg{width:20px;height:20px;flex:none;transition:transform .2s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn:hover svg{transform:translateX(4px)}
+.btn:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.btn--light,.btn--dark{padding:20px 36px;font-weight:800;font-size:max(13px, calc(15 * var(--u)))}
+.btn--light{background:var(--white);color:var(--navy)}
+.btn--dark{background:var(--navy);color:var(--white)}
+.btn--light:hover,.btn--dark:hover{box-shadow:0 12px 28px rgba(0,0,0,.22)}
+.btn--ghost{padding:18px 32px;border:1.5px solid var(--white);color:var(--white);font-weight:700;font-size:max(14px, calc(16 * var(--u)));line-height:normal}
+.btn--ghost:hover{background:rgba(255,255,255,.1)}
+.btn--primary{padding:20px 48px;background:var(--white);color:#1A0F05;font-weight:800;font-size:max(15px, calc(18 * var(--u)));line-height:normal}
+.btn--primary:hover{box-shadow:0 12px 28px rgba(0,0,0,.3)}
+
+.tag{display:inline-flex;padding:10px 20px;border-radius:999px;border:1px solid;font-weight:800;font-size:max(12px, calc(14 * var(--u)));line-height:1.2}
+.tag--dark{color:var(--navy);border-color:rgba(11,27,58,.7)}
+.tag--light{color:var(--white);border-color:rgba(255,255,255,.7)}
+
+/* =========================================================
+   1. HERO — fits one screen, image slideshow behind
+   ========================================================= */
+.hero{position:relative;isolation:isolate;overflow:hidden;background:var(--navy);color:var(--white);
+  height:min(calc(1120 * var(--u)), 100svh);min-height:600px;display:flex;align-items:center}
+.slide{position:absolute;inset:0;z-index:-2;opacity:0;transition:opacity 1.2s ease}
+.slide.is-active{opacity:1}
+.slide img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 7s ease-out}
+.slide.is-active img{transform:scale(1)}
+/* outlined word, bottom-right like the Figma slides */
+.slide__word{position:absolute;right:calc(-4 * var(--u));bottom:calc(124 * var(--u));
+  font-family:var(--display);font-weight:700;font-size:calc(171 * var(--u));line-height:.9;white-space:nowrap;
+  color:transparent;-webkit-text-stroke:1px var(--white);pointer-events:none;
+  opacity:0;transform:translateY(24px);transition:opacity .9s ease .25s, transform .9s ease .25s}
+.slide.is-active .slide__word{opacity:1;transform:none}
+.hero__overlay{position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(90deg, rgba(0,11,33,.94) 0%, rgba(0,11,33,.72) 36%, rgba(0,11,33,.15) 74%)}
+.hero__wave{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:calc(141 * var(--u));z-index:1;pointer-events:none}
+
+.hero__content{display:flex;flex-direction:column;align-items:flex-start;gap:calc(32 * var(--u));max-width:calc(868 * var(--u));
+  margin-top:calc(-44 * var(--u))}
+.hero__logo{width:calc(236 * var(--u));min-width:170px;height:auto}
+.hero h1{font-family:var(--display);font-weight:700;line-height:1.16;white-space:nowrap}
+.hero h1 .l1{display:block;font-size:max(44px, calc(91 * var(--u)))}
+.hero h1 .l2{display:block;font-size:max(22px, calc(45 * var(--u)))}
+.hero__sub{width:calc(700 * var(--u));min-width:min(100%, 420px);font-size:max(14px, calc(16 * var(--u)));line-height:1.55;color:var(--muted)}
+.hero__dates{font-size:max(13px, calc(15 * var(--u)));line-height:1.65;color:var(--muted-2)}
+
+/* =========================================================
+   2. PRIZE
+   ========================================================= */
+.prize .wrap{display:flex;align-items:center;gap:calc(120 * var(--u));padding-top:calc(100 * var(--u));padding-bottom:calc(160 * var(--u))}
+.collage{position:relative;flex:none;width:calc(860 * var(--u));height:calc(700 * var(--u))}
+.collage figure{position:absolute;margin:0;overflow:hidden;border-radius:calc(14 * var(--u));background:#1B3462}
+.collage img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.collage figure:hover img{transform:scale(1.05)}
+.f-1{left:0;top:calc(70 * var(--u));width:calc(420 * var(--u));height:calc(330 * var(--u))}
+.f-2{left:0;top:calc(420 * var(--u));width:calc(420 * var(--u));height:calc(280 * var(--u))}
+.f-3{left:calc(440 * var(--u));top:0;width:calc(420 * var(--u));height:calc(700 * var(--u))}
+.f-2 img{object-position:50% 35%}
+
+.prize__content{flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:calc(28 * var(--u))}
+.prize h2{font-size:max(28px, calc(44 * var(--u)));line-height:.95}
+.prize__body{font-size:max(14px, calc(16 * var(--u)));line-height:1.65;color:var(--body)}
+.checks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:calc(16 * var(--u))}
+.checks li{display:flex;align-items:center;gap:14px;font-weight:600;font-size:max(14px, calc(18 * var(--u)));line-height:1.65}
+.checks svg{width:22px;height:22px;flex:none}
+
+/* =========================================================
+   3. CAMPAIGN DETAILS
+   ========================================================= */
+.details{background:var(--navy);color:var(--white)}
+.details .wrap{display:flex;flex-direction:column;gap:calc(64 * var(--u));padding-top:calc(140 * var(--u));padding-bottom:calc(140 * var(--u))}
+.details__head{display:flex;flex-direction:column;align-items:flex-start;gap:calc(24 * var(--u))}
+.details h2{font-size:max(32px, calc(74 * var(--u)));line-height:.95;white-space:nowrap}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:calc(24 * var(--u))}
+.card{border:1px solid rgba(255,255,255,.3);padding:calc(36 * var(--u)) calc(32 * var(--u));display:flex;flex-direction:column;align-items:flex-start;gap:calc(16 * var(--u));
+  transition:border-color .25s ease, transform .25s ease}
+.card:hover{border-color:rgba(245,179,66,.75);transform:translateY(-4px)}
+.card svg{width:calc(40 * var(--u));height:calc(40 * var(--u));min-width:28px;min-height:28px;flex:none}
+.card__text{display:contents}
+.card__label{font-weight:800;font-size:max(11px, calc(14 * var(--u)));line-height:1.2;color:var(--muted-2)}
+.card__value{font-size:max(18px, calc(26 * var(--u)));line-height:1}
+.card__sub{font-size:max(12px, calc(15 * var(--u)));line-height:1.65;color:var(--muted)}
+
+.tc-row{border-top:1px solid rgba(255,255,255,.25);padding-top:calc(48 * var(--u))}
+.cta{border:1px solid rgba(255,255,255,.3);border-radius:calc(36 * var(--u));padding:calc(64 * var(--u)) calc(49 * var(--u));
+  display:flex;align-items:center;justify-content:space-between;gap:24px}
+.cta__copy{display:flex;flex-direction:column;gap:10px}
+.cta h2{font-size:max(30px, calc(54 * var(--u)));line-height:1;white-space:nowrap}
+.cta p{font-size:max(14px, calc(19 * var(--u)));line-height:normal;color:var(--sand)}
+.cta__btns{display:flex;gap:16px;align-items:center}
+
+/* =========================================================
+   MOBILE — from the iPhone 16 (393) frame
+   ========================================================= */
+@media (max-width:1023px){
+  :root{--u:1px}
+  .wrap{padding-inline:24px;max-width:560px}
+
+  .hero{height:auto;min-height:797px;align-items:flex-start}
+  .hero__overlay{background:linear-gradient(180deg, rgba(11,27,58,.9) 0%, rgba(11,27,58,.72) 33.65%, rgba(11,27,58,.1) 83.65%)}
+  .hero .wrap{padding-top:126px;padding-bottom:240px}
+  .hero__content{gap:17px;max-width:none;margin-top:0}
+  .hero__logo{width:190px;min-width:0}
+  .hero h1 .l1{font-size:50px}
+  .hero h1 .l2{font-size:17.8px}
+  .hero__sub{width:auto;min-width:0;font-size:14px;line-height:1.6}
+  .hero .btn{width:100%;height:60px;gap:6px;font-size:14px;padding:0 20px}
+  .hero__dates{font-size:12px;line-height:1.6}
+  .slide__word{right:auto;left:50%;bottom:58px;transform:translate(-50%, 24px);font-size:64px}
+  .slide.is-active .slide__word{transform:translate(-50%, 0)}
+  .hero__wave{height:51px}
+
+  .prize .wrap{flex-direction:column;align-items:stretch;gap:36px;padding-top:40px;padding-bottom:72px}
+  .collage{width:100%;height:auto;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:175px 175px;gap:10px}
+  .collage figure{position:static;width:auto;height:auto;border-radius:10px}
+  .f-1{grid-column:1;grid-row:1}
+  .f-2{grid-column:1;grid-row:2}
+  .f-3{grid-column:2;grid-row:1 / span 2}
+  .prize__content{gap:20px}
+  .tag{font-size:12px;padding:8px 16px}
+  .prize h2{font-size:28px;line-height:1.05}
+  .prize__body{font-size:15px;line-height:1.6}
+  .checks{gap:12px}
+  .checks li{font-size:15px;line-height:1.4;gap:12px}
+  .checks svg{width:20px;height:20px}
+  .prize .btn{width:100%;height:60px;font-size:14px;padding:0 20px}
+
+  .details .wrap{gap:32px;padding-top:64px;padding-bottom:72px}
+  .details__head{gap:16px}
+  .details h2{font-size:clamp(26px, 8vw, 34px);white-space:normal}
+  .cards{grid-template-columns:1fr;gap:12px}
+  .card{display:grid;grid-template-columns:28px 1fr;column-gap:16px;row-gap:6px;padding:28px 20px}
+  .card svg{width:28px;height:28px;grid-row:1 / span 3}
+  .card__label{font-size:12px;letter-spacing:.08em;grid-column:2}
+  .card__value{font-size:20px;line-height:1.1;grid-column:2}
+  .card__sub{font-size:14px;line-height:1.55;grid-column:2}
+  .tc-row{padding-top:32px}
+  .cta{flex-direction:column;align-items:stretch;border-radius:24px;padding:32px 24px;gap:20px}
+  .cta h2{font-size:clamp(26px, 8vw, 32px)}
+  .cta p{font-size:15px;line-height:1.5}
+  .cta__btns{flex-direction:column-reverse;align-items:stretch;gap:12px}
+  .cta__btns .btn{width:100%;height:60px;padding:0 20px}
+}
+
+/* =========================================================
+   ENTRY POPUP (Figma: "popup-entry form" + "Entry popup - mobile")
+   ========================================================= */
+html.modal-open{overflow:hidden}
+.modal{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:24px;
+  background:rgba(4,9,20,.8);
+  opacity:0;visibility:hidden;transition:opacity .3s ease, visibility 0s linear .3s}
+.modal.is-open{opacity:1;visibility:visible;transition:opacity .3s ease, visibility 0s}
+.popup{position:relative;display:grid;grid-template-columns:440px minmax(0,1fr);width:min(1040px, 100%);height:min(832px, calc(100dvh - 48px));
+  background:#15100B;border:1px solid rgba(245,199,107,.22);border-radius:28px;overflow:hidden;
+  box-shadow:0 30px 80px rgba(0,0,0,.45);transform:translateY(24px) scale(.98);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.modal.is-open .popup{transform:none}
+.popup__media{position:relative;overflow:hidden}
+.popup__media img{width:100%;height:100%;object-fit:cover}
+.chip{position:absolute;left:36px;bottom:36px;display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:39px;
+  background:rgba(11,27,58,.62);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:13px;white-space:nowrap;
+  backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.chip::before{content:"";width:8px;height:8px;border-radius:50%;background:#F5B342;flex:none}
+.chip b{font-weight:600}
+
+.popup__panel{position:relative;background:#F7F8FB;overflow-y:auto;overscroll-behavior:contain;padding:36px 44px 40px;display:flex;flex-direction:column}
+.popup__close{align-self:flex-end;flex:none;width:44px;height:44px;border-radius:22px;border:0;background:#fff;display:grid;place-items:center;cursor:pointer;
+  box-shadow:0 2px 10px rgba(11,27,58,.08);transition:transform .2s ease}
+.popup__close:hover{transform:rotate(90deg)}
+.popup__close:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.popup__close svg{width:16px;height:16px}
+.popup__body{margin-block:auto;display:flex;flex-direction:column;gap:18px;padding-top:18px}
+
+.popup__title{display:flex;flex-direction:column;gap:8px;color:var(--navy)}
+.popup__title h2{font-family:var(--display);font-weight:700;font-size:36px;line-height:1;letter-spacing:-.03em;text-transform:uppercase}
+.popup__title p{font-size:16px;line-height:1.5}
+
+.form{display:flex;flex-direction:column;gap:17px}
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px 18px}
+.field{display:flex;flex-direction:column;gap:2px;min-width:0}
+.field label,.offer-label{font-weight:500;font-size:12px;color:var(--navy)}
+.field input,.field select{appearance:none;-webkit-appearance:none;width:100%;height:52px;padding:0;border:0;border-bottom:1px solid var(--navy);border-radius:0;
+  background:transparent;color:var(--navy);font:500 16px/1.2 var(--sans);transition:border-color .2s ease, box-shadow .2s ease}
+.field select{cursor:pointer;padding-right:24px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5l5 5 5-5' stroke='%230B1B3A' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 4px center}
+.field select:invalid{color:#7B869B}
+.field input:focus,.field select:focus{outline:none;border-bottom-color:var(--navy);box-shadow:0 2px 0 0 var(--navy)}
+.field input::placeholder{color:#9AA4B6}
+.err{min-height:0;font-size:11px;line-height:1.3;color:#B42318}
+.err:empty{display:none}
+.is-invalid input,.is-invalid select{border-bottom-color:#B42318;box-shadow:0 1px 0 0 #B42318}
+
+.offers{display:flex;flex-direction:column;gap:12px;border:0;margin:0;padding:0;min-width:0}
+.offers legend{padding:0;margin-bottom:12px}
+.offer-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px 18px}
+.offer{position:relative;display:flex;align-items:center;min-height:46px;padding:10px;border:.6px solid var(--navy);cursor:pointer;
+  font-weight:500;font-size:12px;color:var(--navy);transition:background-color .2s ease, color .2s ease;user-select:none}
+.offer input{position:absolute;opacity:0;pointer-events:none}
+.offer:hover{background:rgba(11,27,58,.06)}
+.offer:has(input:checked){background:var(--navy);color:#F7F8FB}
+.offer:has(input:focus-visible){outline:2px solid var(--amber);outline-offset:2px}
+.offer.is-on{background:var(--navy);color:#F7F8FB}
+
+.consent{display:flex;gap:8px;align-items:flex-start;font-size:11px;line-height:1.4;color:var(--navy);cursor:pointer}
+.consent input{appearance:none;-webkit-appearance:none;flex:none;width:16px;height:16px;margin:0;border:1px solid var(--navy);background:#fff;cursor:pointer;display:grid;place-items:center}
+.consent input:checked{background:var(--navy)}
+.consent input:checked::after{content:"";width:8px;height:4px;border:2px solid #fff;border-top:0;border-right:0;transform:translateY(-1px) rotate(-45deg)}
+.consent input:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.consent a{font-weight:700;color:inherit}
+
+.submit{width:100%;border:0;background:var(--navy);color:#fff;padding:16px 39px;font:700 16px/1.772 var(--sans);text-transform:uppercase;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:10px;transition:background-color .2s ease}
+.submit:hover{background:#13285A}
+.submit:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.submit[aria-busy="true"]{opacity:.7;cursor:progress}
+
+/* success state */
+.success{display:none;flex-direction:column;gap:20px;color:var(--navy)}
+.popup.is-done .form,.popup.is-done .popup__title{display:none}
+.popup.is-done .success{display:flex}
+.success h2{font-family:var(--display);font-weight:700;font-size:36px;line-height:1;text-transform:uppercase}
+.success p{font-size:16px;line-height:1.6;color:var(--body)}
+.success ol{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;counter-reset:s}
+.success li{display:grid;grid-template-columns:32px 1fr;gap:12px;align-items:start;font-size:14px;line-height:1.55;color:var(--body);counter-increment:s}
+.success li::before{content:counter(s);width:32px;height:32px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:800;font-size:13px}
+.success li strong{color:var(--navy)}
+.success__btns{display:flex;flex-direction:column;gap:10px}
+.success__btns a{text-align:center}
+.success .submit{text-decoration:none}
+.btn-line{display:block;padding:15px;border:1.5px solid var(--navy);color:var(--navy);font-weight:700;font-size:14px;text-decoration:none;text-transform:uppercase}
+
+/* shorter laptop screens: tighten so the whole form fits without scrolling */
+@media (min-width:1024px) and (max-height:860px){
+  .popup__panel{padding:24px 40px 28px}
+  .popup__body{gap:14px;padding-top:6px}
+  .popup__title h2{font-size:32px}
+  .form{gap:14px}
+  .fields{row-gap:10px}
+  .field input,.field select{height:42px}
+  .offer{min-height:40px}
+}
+
+/* tablet + phone: stacked card from the mobile design */
+@media (max-width:1023px){
+  .modal{place-items:start center;overflow-y:auto;padding:16px 12px}
+  .popup{grid-template-columns:1fr;width:min(560px, 100%);height:auto;border-radius:24px;background:#000;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+  .popup__media{height:232px}
+  .popup__media img{object-position:50% 30%}
+  .popup__media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(10,13,13,0) 30%, rgba(10,13,13,.88) 100%)}
+  .chip{left:50%;bottom:16px;transform:translateX(-50%);z-index:1;font-size:12.3px;gap:9px;padding:9px 15px}
+  .popup__panel{overflow:visible;padding:22px 20px 24px}
+  /* close stays reachable while the card scrolls */
+  .popup__close{position:fixed;top:28px;right:max(24px, calc(50% - 268px));z-index:3;width:40px;height:40px;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+  .popup__body{padding-top:0;gap:34px;margin:0}
+  .popup__title{padding-inline:12px;gap:5px}
+  .popup__title h2{font-size:28px}
+  .popup__title p{font-size:12px}
+  .form{gap:30px}
+  .fields{grid-template-columns:1fr;gap:17px}
+  .offers legend{margin-bottom:17px;max-width:260px}
+  .offer-grid{grid-template-columns:1fr;gap:10px}
+  .offer{min-height:48px}
+  .submit{padding-block:12px}
+  .success h2{font-size:28px}
+}
+@media (min-width:600px) and (max-width:1023px){
+  .fields,.offer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .modal{padding:40px 24px}
+}
+@media (prefers-reduced-motion:reduce){ .popup{transform:none !important} }
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01ms !important}
+  .slide img{transform:none !important}
+}
+</style>
+</head>
+<body>
+<main>
+
+  <!-- ================= 1. HERO / SLIDESHOW ================= -->
+  <section class="hero" id="hero" aria-label="Mega Friday $500 BCF Voucher Giveaway">
+    <div class="slide is-active">
+      <img src="assets/slide-camping.jpg" alt="" fetchpriority="high">
+      <p class="slide__word" aria-hidden="true">CAMPING</p>
+    </div>
+    <div class="slide">
+      <img src="assets/slide-boating.jpg" alt="">
+      <p class="slide__word" aria-hidden="true">BOATING</p>
+    </div>
+    <div class="slide">
+      <img src="assets/slide-fishing.jpg" alt="">
+      <p class="slide__word" aria-hidden="true">FISHING</p>
+    </div>
+    <div class="hero__overlay"></div>
+
+    <div class="wrap">
+      <div class="hero__content">
+        <img class="hero__logo" src="assets/mega-friday-logo.png" width="236" height="31" alt="Mega Friday">
+        <h1><span class="l1">GEAR UP</span><span class="l2">FOR YOUR NEXT ADVENTURE!</span></h1>
+        <p class="hero__sub">One lucky winner will score a $500 BCF shopping voucher. Whether it's boating, camping or fishing, your next adventure starts here.</p>
+        <a class="btn btn--light" href="https://go.megarewards.au/bcf-voucher-giveaway">FREE TO ENTER - SUBSCRIBE NOW
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <p class="hero__dates">Closes 9:00am ACDT Fri 4 Dec 2026</p>
+      </div>
+    </div>
+
+    <svg class="hero__wave" viewBox="0 40 1920 141" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 120 C 350 30, 700 40, 1010 100 S 1630 190, 1920 40 L1920 181 L0 181 Z" fill="#F7F8FB"/>
+    </svg>
+  </section>
+
+  <!-- ================= 2. PRIZE ================= -->
+  <section class="prize" id="prize" aria-labelledby="prize-title">
+    <div class="wrap">
+      <div class="collage">
+        <figure class="f-1"><img src="assets/prize-camping.jpg" alt="Aerial view of coastal campsites beside a turquoise reef" loading="lazy"></figure>
+        <figure class="f-2"><img src="assets/prize-fishing.jpg" alt="Anglers holding a marlin in shallow water" loading="lazy"></figure>
+        <figure class="f-3"><img src="assets/prize-sailing.jpg" alt="Sailing out onto the open ocean" loading="lazy"></figure>
+      </div>
+
+      <div class="prize__content">
+        <span class="tag tag--dark">THE PRIZE</span>
+        <h2 class="display" id="prize-title">WIN A $500 BCF<br>SHOPPING VOUCHER</h2>
+        <p class="prize__body">One (1) winner will receive a Boating Camping and Fishing shopping voucher valued at $500 AUD. Stock up on everything you need for your next trip on the water, at the campsite or down by the river.</p>
+        <ul class="checks">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#0B1B3A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg>1 winner · $500 AUD total prize value</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#0B1B3A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg>Free to enter for Australian residents 18+</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#0B1B3A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg>Earn up to 4 entries per person</li>
+        </ul>
+        <a class="btn btn--dark" href="https://go.megarewards.au/bcf-voucher-giveaway">FREE TO ENTER - SUBSCRIBE NOW
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 3. CAMPAIGN DETAILS ================= -->
+  <section class="details" id="details" aria-labelledby="details-title">
+    <div class="wrap">
+      <div class="details__head">
+        <span class="tag tag--light">THE INFORMATION</span>
+        <h2 class="display" id="details-title">CAMPAIGN DETAILS</h2>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#F5B342" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h18v4H3zM5 12v9h14v-9M12 8v13M12 8c-2-4-6-4-6-1.5S10 8 12 8zm0 0c2-4 6-4 6-1.5S14 8 12 8z"/></svg>
+          <div class="card__text">
+            <h3 class="card__label">TOTAL PRIZE VALUE</h3>
+            <p class="card__value display">$500 AUD</p>
+            <p class="card__sub">One (1) winner</p>
+          </div>
+        </article>
+        <article class="card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#F5B342" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <div class="card__text">
+            <h3 class="card__label">ENTRIES CLOSE</h3>
+            <p class="card__value display"><time datetime="2026-12-04T09:00+10:30">FRI 4 DEC 2026</time></p>
+            <p class="card__sub">9:00am ACDT</p>
+          </div>
+        </article>
+        <article class="card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#F5B342" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M3 10h18M8 3v4M16 3v4M9 15l2 2 4-4"/></svg>
+          <div class="card__text">
+            <h3 class="card__label">DRAW DATE &amp; TIME</h3>
+            <p class="card__value display"><time datetime="2026-12-04T10:00+10:30">FRI 4 DEC 2026</time></p>
+            <p class="card__sub">10:00am ACDT</p>
+          </div>
+        </article>
+        <article class="card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#F5B342" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          <div class="card__text">
+            <h3 class="card__label">DRAW LOCATION</h3>
+            <p class="card__value display">RANDOMDRAWS</p>
+            <p class="card__sub">Randomdraws.com Pty Ltd<br>3/55 Gawler Place, Adelaide SA 5000</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="tc-row">
+        <div class="cta">
+          <div class="cta__copy">
+            <h2 class="display">READY TO WIN?</h2>
+            <p>Join Mega Rewards free and enter in under a minute.</p>
+          </div>
+          <div class="cta__btns">
+            <!-- TODO: replace # with the live Terms & Conditions URL -->
+            <a class="btn btn--ghost" href="#">Terms &amp; Conditions</a>
+            <a class="btn btn--primary" href="https://go.megarewards.au/bcf-voucher-giveaway">ENTER FREE NOW</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= ENTRY POPUP ================= -->
+<div class="modal" id="entry" aria-hidden="true">
+  <div class="popup" role="dialog" aria-modal="true" aria-labelledby="entry-title" aria-describedby="entry-desc">
+    <div class="popup__media">
+      <img src="assets/popup-sailing.jpg" alt="" width="440" height="832">
+      <!-- Draw date from the T&Cs: Friday 4 December 2026, 10:00am ACDT -->
+      <p class="chip">Draw on <b>Friday, 4th December 2026</b></p>
+    </div>
+
+    <div class="popup__panel">
+      <button class="popup__close" type="button" data-close aria-label="Close entry form">
+        <svg viewBox="0 0 16 16" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13"/></svg>
+      </button>
+
+      <div class="popup__body">
+        <div class="popup__title">
+          <h2 id="entry-title">Enter Giveaway</h2>
+          <p id="entry-desc">Your MEGA moment starts here.</p>
+        </div>
+
+        <!-- TODO (developer): set data-endpoint to the real entry API. Without it, the form validates and shows the success screen only. -->
+        <form class="form" id="entry-form" novalidate data-endpoint="">
+          <div class="fields">
+            <div class="field"><label for="f-first">First Name</label><input id="f-first" name="firstName" autocomplete="given-name" required><p class="err" id="e-first"></p></div>
+            <div class="field"><label for="f-last">Last Name</label><input id="f-last" name="lastName" autocomplete="family-name" required><p class="err" id="e-last"></p></div>
+            <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="04xx xxx xxx" required><p class="err" id="e-phone"></p></div>
+            <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" inputmode="email" autocomplete="email" required><p class="err" id="e-email"></p></div>
+            <div class="field"><label for="f-suburb">Suburb</label><input id="f-suburb" name="suburb" autocomplete="address-level2" required><p class="err" id="e-suburb"></p></div>
+            <div class="field"><label for="f-state">State</label>
+              <select id="f-state" name="state" autocomplete="address-level1" required>
+                <option value="" disabled selected>Select</option>
+                <option>ACT</option><option>NSW</option><option>NT</option><option>QLD</option><option>SA</option><option>TAS</option><option>VIC</option><option>WA</option>
+              </select><p class="err" id="e-state"></p></div>
+          </div>
+
+          <fieldset class="offers" id="offers">
+            <legend class="offer-label">Partner Offerings You're Interested In (Select all that apply) *</legend>
+            <div class="offer-grid">
+              <label class="offer"><input type="checkbox" name="offers" value="Tech & Services">Tech &amp; Services</label>
+              <label class="offer"><input type="checkbox" name="offers" value="Finance & Rewards">Finance &amp; Rewards</label>
+              <label class="offer"><input type="checkbox" name="offers" value="Travel">Travel</label>
+              <label class="offer"><input type="checkbox" name="offers" value="Entertainment & Experience">Entertainment &amp; Experience</label>
+              <label class="offer"><input type="checkbox" name="offers" value="Everyday Essentials">Everyday Essentials</label>
+              <label class="offer"><input type="checkbox" name="offers" value="Shopping & Lifestyle">Shopping &amp; Lifestyle</label>
+            </div>
+            <p class="err" id="e-offers"></p>
+          </fieldset>
+
+          <div>
+            <label class="consent"><input type="checkbox" id="f-consent" name="consent" required>
+              <span>*I confirm that I am over 18 years old and reside in Australia. By completing this registration form, I agree to become a free Mega Rewards subscriber and receive communication in accordance with their <a href="#" target="_blank" rel="noopener">Privacy Policy</a>.</span></label>
+            <p class="err" id="e-consent"></p>
+          </div>
+
+          <button class="submit" type="submit">Free to Subscribe</button>
+        </form>
+
+        <div class="success" role="status" aria-live="polite" tabindex="-1">
+          <h2>You're in!</h2>
+          <p>Thanks for entering the $500 BCF Voucher Giveaway. Two quick steps to make your entry count:</p>
+          <ol>
+            <li><span><strong>Verify your email.</strong> Log in at megarewards.au/login. Your entry is only included in the draw once your email is verified, and you must still be a subscriber when entries close.</span></li>
+            <li><span><strong>Earn up to 3 bonus entries.</strong> Follow Mega Rewards on Facebook, Instagram and TikTok, find the hidden code in each bio, then enter it in your dashboard.</span></li>
+          </ol>
+          <div class="success__btns">
+            <a class="submit" href="https://megarewards.au/login">Verify my email</a>
+            <a class="btn-line" href="https://megarewards.au/mydashboard/#giveaways">Go to my dashboard</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* Hero slideshow: Camping → Boating → Fishing, crossfading every 5s.
+   Swipe left/right on phones to change slide. Pauses when the tab is hidden. */
+(() => {
+  const slides = [...document.querySelectorAll('.hero .slide')];
+  const hero = document.getElementById('hero');
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  let i = 0, timer;
+  const show = n => {
+    i = (n + slides.length) % slides.length;
+    slides.forEach((s, k) => s.classList.toggle('is-active', k === i));
+  };
+  const start = () => { clearInterval(timer); timer = setInterval(() => show(i + 1), 5000); };
+  document.addEventListener('visibilitychange', () => document.hidden ? clearInterval(timer) : start());
+  let x0 = null;
+  hero.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+  hero.addEventListener('touchend', e => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 50) { show(i + (dx < 0 ? 1 : -1)); start(); }
+    x0 = null;
+  });
+  start();
+})();
+</script>
+<script>
+/* Entry popup: opens on first visit and from every "Enter" button. */
+(() => {
+  const modal = document.getElementById('entry');
+  const popup = modal.querySelector('.popup');
+  const form = document.getElementById('entry-form');
+  const closeBtn = modal.querySelector('[data-close]');
+  let lastFocus = null;
+
+  const focusables = () => [...popup.querySelectorAll('a[href],button:not([disabled]),input:not([disabled]),select,textarea,[tabindex]:not([tabindex="-1"])')]
+    .filter(el => el.offsetParent !== null || el === closeBtn);
+
+  function open() {
+    lastFocus = document.activeElement;
+    modal.classList.add('is-open'); modal.setAttribute('aria-hidden', 'false');
+    document.documentElement.classList.add('modal-open');
+    modal.scrollTop = 0; popup.querySelector('.popup__panel').scrollTop = 0;
+    setTimeout(() => (window.matchMedia('(hover: hover)').matches ? document.getElementById('f-first') : closeBtn).focus({ preventScroll: true }), 50);
+  }
+  function close() {
+    modal.classList.remove('is-open'); modal.setAttribute('aria-hidden', 'true');
+    document.documentElement.classList.remove('modal-open');
+    if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
+  }
+
+  // every entry CTA opens the popup (falls back to the hosted entry page without JS)
+  document.querySelectorAll('a[href*="go.megarewards.au/bcf-voucher-giveaway"]').forEach(a =>
+    a.addEventListener('click', e => { e.preventDefault(); open(); }));
+  closeBtn.addEventListener('click', close);
+  modal.addEventListener('mousedown', e => { if (e.target === modal) close(); });
+  document.addEventListener('keydown', e => {
+    if (!modal.classList.contains('is-open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'Tab') {
+      const f = focusables(); if (!f.length) return;
+      const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+
+  // first view: show once per browser session
+  let seen = false;
+  try { seen = sessionStorage.getItem('bcf-entry-seen') === '1'; sessionStorage.setItem('bcf-entry-seen', '1'); } catch (e) {}
+  if (!seen) setTimeout(open, 700);
+
+  // ---------- validation ----------
+  const v = {
+    'f-first': x => x.trim() ? '' : 'Please enter your first name.',
+    'f-last': x => x.trim() ? '' : 'Please enter your last name.',
+    'f-phone': x => /^(0[2-478]\d{8}|61[2-478]\d{8})$/.test(x.replace(/\D/g, '')) ? '' : 'Please enter a valid Australian phone number.',
+    'f-email': x => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(x.trim()) ? '' : 'Please enter a valid email address.',
+    'f-suburb': x => x.trim() ? '' : 'Please enter your suburb.',
+    'f-state': x => x ? '' : 'Please choose your state.'
+  };
+  const errFor = id => document.getElementById('e-' + id.slice(2));
+  function check(input) {
+    const msg = v[input.id](input.value);
+    errFor(input.id).textContent = msg;
+    input.closest('.field').classList.toggle('is-invalid', !!msg);
+    input.setAttribute('aria-invalid', msg ? 'true' : 'false');
+    if (msg) input.setAttribute('aria-describedby', errFor(input.id).id); else input.removeAttribute('aria-describedby');
+    return !msg;
+  }
+  Object.keys(v).forEach(id => {
+    const el = document.getElementById(id);
+    el.addEventListener('blur', () => { if (el.value) check(el); });
+    el.addEventListener('input', () => { if (el.closest('.field').classList.contains('is-invalid')) check(el); });
+    el.addEventListener('change', () => { if (el.tagName === 'SELECT') check(el); });
+  });
+  const offerBoxes = [...form.querySelectorAll('input[name="offers"]')];
+  const checkOffers = () => { const ok = offerBoxes.some(b => b.checked); document.getElementById('e-offers').textContent = ok ? '' : 'Please select at least one.'; return ok; };
+  offerBoxes.forEach(b => b.addEventListener('change', () => { b.parentElement.classList.toggle('is-on', b.checked); if (document.getElementById('e-offers').textContent) checkOffers(); }));
+  const consent = document.getElementById('f-consent');
+  const checkConsent = () => { const ok = consent.checked; document.getElementById('e-consent').textContent = ok ? '' : 'Please confirm to continue.'; return ok; };
+  consent.addEventListener('change', () => { if (document.getElementById('e-consent').textContent) checkConsent(); });
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const okFields = Object.keys(v).map(id => check(document.getElementById(id)));
+    const ok = okFields.every(Boolean) & checkOffers() & checkConsent();
+    if (!ok) {
+      const firstBad = form.querySelector('[aria-invalid="true"]') || (!offerBoxes.some(b => b.checked) && offerBoxes[0]) || (!consent.checked && consent);
+      if (firstBad) { firstBad.focus(); firstBad.scrollIntoView({ block: 'center', behavior: 'smooth' }); }
+      return;
+    }
+    const btn = form.querySelector('.submit');
+    btn.setAttribute('aria-busy', 'true'); btn.textContent = 'Submitting…';
+    const data = Object.fromEntries(new FormData(form)); data.offers = offerBoxes.filter(b => b.checked).map(b => b.value);
+    try {
+      if (form.dataset.endpoint) {
+        const res = await fetch(form.dataset.endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+        if (!res.ok) throw new Error(res.status);
+      }
+      popup.classList.add('is-done');
+      popup.querySelector('.popup__panel').scrollTop = 0; modal.scrollTop = 0;
+      popup.querySelector('.success').focus();
+    } catch (err) {
+      document.getElementById('e-consent').textContent = 'Something went wrong. Please try again.';
+    } finally {
+      btn.removeAttribute('aria-busy'); btn.textContent = 'Free to Subscribe';
+    }
+  });
+})();
+</script>
+</body>
+</html>
